@@ -30,7 +30,7 @@ python inference_celeba_h36m_mnist.py --yaml_path=./configs/h36m.yaml
 python inference_multi_objects.py --mode=test --yaml_path=./configs/clevr.yaml
 ```
 
-Evaluation metrics for CLEVR, and Tetrominoes will be shown in the terminal when running the inference code. For MAFL and Human3.6M, pretrained linear projection need to be downloaded and stored as './results/H36M/h36m/LinearProjection_model' and './results/MAFL/celeba/LinearProjection_model, then run the following command
+Evaluation metrics for CLEVR, and Tetrominoes will be shown in the terminal when running the inference code. For MAFL and Human3.6M, pretrained linear projection need to be downloaded and stored as `./results/H36M/h36m/LinearProjection_model` and `./results/MAFL/celeba/LinearProjection_model`, then run the following command
 ```
 python evaluate_celeba_h36m.py --mode=test --yaml_path=./configs/celeba.yaml
 python evaluate_celeba_h36m.py --mode=test --yaml_path=./configs/h36m.yaml
