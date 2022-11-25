@@ -1,0 +1,69 @@
+model:
+  encoder:
+    type: UNet
+    gnorm_affine: True 
+  decoder:
+    type: UNet
+  latent_channel: 32
+  spatial_softmax:
+    kernel_size: 27
+    strength: 5
+  num_cluster: 114
+  top_k: 3
+  gau_var: 0.05
+  alpha_blending: True
+
+data:
+  dataset:
+    name: multi_object
+    dir: /ubc/cs/research/kmyi/datasets
+    sub_name: tetrominoes
+  preprocess:
+    image_size: 112
+
+training:
+  epochs: 1000
+  batch_size: 38
+  lr:
+    feature: 0.001
+    prototype: 0.1
+    num_opt_sw: 8
+  checkpoint:
+    save_weights: True
+    resume: False
+  set_seed: False
+  scheduler:
+    summary_interval: 2
+    save_interval: 60
+    valid_interval: 60
+    stop_time: -1
+  loss:
+    fixed_prototype: False
+    feature:
+      recon:
+        type: MSE
+        weight: 1
+        pretrained_path: ./pretrained/vgg16
+      cluster:
+        type: KM
+        weight: 0.01
+      eqvar:
+        activate: True
+        h_weight: 0.01
+        f_weight: 100
+    prototype:
+      sw:
+        weight: 1
+
+viz:
+  log_dir: ./logs
+  show_all_debug: False
+  plot_gt_tsne: False
+
+metadata:
+  name: 'tet'
+  comments: ''
+  model_dir: './saved_models'
+  result_root_folder: './results'
+
+
