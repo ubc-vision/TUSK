@@ -2,7 +2,7 @@
 ### Yuhe Jin, Weiwei Sun, Jan Hosang, Eduard Trulls, Kwang Moo Yi
 This repository contains training and inference code for [TUSK: Task-Agnostic Unsupervised Keypoints](https://arxiv.org/abs/2206.08460).
 
-![alt text](https://github.com/ubc-vision/mist/TUSK/main/images/mnist_results.png)
+![alt text](https://github.com/ubc-vision/TUSK/blob/main/images/mnist_results.png)
 ## Installation
 This code is implemented based on PyTorch. A conda environment is provided with all the dependencies:
 ```
